@@ -2,3 +2,4 @@
 {{ diana.gender }}
 <input [(ngModel)]="diana.name">
 </p>
+<p *ngFor="let i of swpeople" (click) = 'onSelecteswpeople(i)'>{{i.name}}</p>
