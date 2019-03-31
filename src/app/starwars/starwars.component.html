@@ -1,5 +1,4 @@
-<p>
-{{ diana.gender }}
-<input [(ngModel)]="diana.name">
-</p>
+
 <p *ngFor="let i of swpeople" (click) = 'onSelecteswpeople(i)'>{{i.name}}</p>
+
+<app-swpeople-detail [swpeople]="selectSwpeople"></app-swpeople-detail>

@@ -1,0 +1,16 @@
+<section *ngIf="swpeople">
+  <h2>{{ swpeople | uppercase }}</h2>
+  <p><strong>Name: </strong> {{ swpeople.name }}</p>
+  <p><strong>Gender: </strong> {{ swpeople.gender }}</p>
+
+  <div class="row">
+    <div class="col-md-6">
+      <label>Nombre: </label>
+      <input [(ngModel)]="swpeople.name" placeholder="Luke Skywalker" class="form-control"/>
+    </div>
+    <div class="col-md-6">
+      <label>Genero: </label>
+      <input [(ngModel)]="swpeople.gender" placeholder="Masculino" class="form-control"/>
+    </div> 
+  </div>
+</section>

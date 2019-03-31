@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Swpeople} from '../swpeople';
-import {SWPEOPLE} from '../mock-swpeople';
-
+import { Swpeople } from '../swpeople';
+import { SwpeopleService } from '../swpeople.service';
 
 
 @Component({
@@ -11,26 +10,23 @@ import {SWPEOPLE} from '../mock-swpeople';
 })
 export class StarwarsComponent implements OnInit {
 
-  diana :Swpeople={
-    name:'avila',
-    gender:'femenino'
-
-  }
-
   selectSwpeople: Swpeople;
+  swpeople: Swpeople[];
 
-  swpeople = SWPEOPLE;
-
-
-  onSelecteswpeople(swpeople: Swpeople): void {
-    alert(this.selectSwpeople)
-    this.selectSwpeople = swpeople;
-    console.log(this.selectSwpeople)
-  }
-
-  constructor() { }
+  constructor(private swpeopleService: SwpeopleService) { }
 
   ngOnInit() {
+    this.getSwpeople();
   }
+
+  onSelecteswpeople(swpeople: Swpeople): void {
+    this.selectSwpeople = swpeople;
+  }
+
+  getSwpeople(): void{
+    this.swpeopleService.getSwPeople()
+      .subscribe(swpeople => this.swpeople = swpeople);
+  }
+
 
 }
